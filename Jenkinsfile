@@ -25,7 +25,7 @@ pipeline{
 
         stage ('Publish to Nexus Repo'){
             scripts{
-
+              steps{
             nexusArtifactUploader artifacts:
             [[artifactId: 'DemoDevOpsLab', classifier: '', file: 'target/DemoDevOpsLab-0.0.2-SNAPSHOT.war',
             type: 'war']], 
@@ -36,6 +36,8 @@ pipeline{
             protocol: 'http', 
             repository: 'DemoDevopsLabs-SNAPSHOT', 
             version: '0.0.2-SNAPSHOT'    
+        }
+
         }
 
 
