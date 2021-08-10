@@ -7,11 +7,11 @@ pipeline{
 
     environment{
 
-       artifactId = readMavenPom().getArtifactId()
-       version = readMavenPom().getVersion()
-       name = readMavenPom().getName()
-       groupId = readMavenPom().getGroupId()
-       
+       ArtifactId = readMavenPom.getArtifactId()
+       Version = readMavenPom().getVersion
+       Name = readMavenPom().getName()
+       GroupId = readMavenPom().getGroupId()
+
     }
 
     stages {
