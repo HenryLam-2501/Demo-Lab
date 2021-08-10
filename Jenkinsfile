@@ -24,8 +24,7 @@ pipeline{
         }
 
         stage ('Publish to Nexus Repo'){
-            scripts{
-              steps{
+            steps{
             nexusArtifactUploader artifacts:
             [[artifactId: 'DemoDevOpsLab', classifier: '', file: 'target/DemoDevOpsLab-0.0.2-SNAPSHOT.war',
             type: 'war']], 
@@ -39,10 +38,7 @@ pipeline{
         }
 
         }
-
-
-        }
-
+    
         // Stage3 : Publish the source code to Sonarqube
         stage ('Sonarqube Analysis'){
             steps {
