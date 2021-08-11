@@ -95,7 +95,7 @@ pipeline{
                         sshTransfer(
                          cleanRemote: false, 
                           excludes: '', 
-                          execCommand: '', 
+                          execCommand: 'ansible-playbook /opt/playbooks/installmanual.yaml -i /opt/playbooks/hosts', 
                           execTimeout: 120000,
                         flatten: false, 
                         makeEmptyDirs: false, 
