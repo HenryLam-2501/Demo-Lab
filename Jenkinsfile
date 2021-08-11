@@ -97,7 +97,6 @@ pipeline{
                           excludes: '', 
                           execCommand: '', 
                           execTimeout: 120000,
-                        )
                         flatten: false, 
                         makeEmptyDirs: false, 
                         noDefaultExcludes: false, 
