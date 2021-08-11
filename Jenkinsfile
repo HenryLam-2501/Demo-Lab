@@ -93,15 +93,22 @@ pipeline{
                     configName: 'Ansible_Controller', 
                     transfers: [
                         sshTransfer(
-                                cleanRemote:false,
-                                execCommand: 'ansible-playbook /opt/playbooks/installanddownload.yaml -i /opt/playbooks/hosts',
-                                execTimeout: 120000
+                         cleanRemote: false, 
+                          excludes: '', 
+                          execCommand: '', 
+                          execTimeout: 120000,
                         )
-                    ], 
-                    usePromotionTimestamp: false, 
-                    useWorkspaceInPromotion: false, 
-                    verbose: false)
-                    ])
+                        flatten: false, 
+                        makeEmptyDirs: false, 
+                        noDefaultExcludes: false, 
+                        patternSeparator: '[, ]+', 
+                        remoteDirectory: '', 
+                        remoteDirectorySDF: false, 
+                        removePrefix: '', sourceFiles: '')], 
+                        usePromotionTimestamp: false, 
+                        useWorkspaceInPromotion: false, 
+                        verbose: false)
+                        ])
             
             }
         }
