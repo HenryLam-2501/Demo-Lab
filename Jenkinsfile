@@ -31,24 +31,6 @@ pipeline{
 
             }
         }
-
-        // stage ('Publish to Nexus Repo'){
-        //     steps{
-        //     nexusArtifactUploader artifacts:
-        //     [[artifactId: 'DemoDevOpsLab', 
-        //     classifier: '', 
-        //     file: 'target/DemoDevOpsLab-0.0.3-SNAPSHOT.war',
-        //     type: 'war']], 
-        //     credentialsId: '19261fcf-f931-44e1-9a37-5ad9fa1b60f9',
-        //     groupId: 'com.vinaysdevopslab', 
-        //     nexusUrl: '172.20.10.213:8081', 
-        //     nexusVersion: 'nexus3', 
-        //     protocol: 'http', 
-        //     repository: 'DemoDevopsLabs-SNAPSHOT', 
-        //     version: '0.0.3-SNAPSHOT'    
-        // }
-
-        // }
         stage ('Publish to Nexus'){
             steps {
                 script {
@@ -60,10 +42,9 @@ pipeline{
                 classifier: '', 
                 file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
-                credentialsId: '19261fcf-f931-44e1-9a37-5ad9fa1b60f9',
-                // credentialsId: '35e9b26e-269a-4804-a70d-6b2ec7a608ce', 
+                credentialsId: '321807c1-cc68-4f7e-9ea0-b0c67e132063', 
                 groupId: "${GroupId}", 
-                nexusUrl: '172.20.10.213:8081', 
+                nexusUrl: '172.20.10.219:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: "${NexusRepo}", 
@@ -75,13 +56,7 @@ pipeline{
         // Stage3 : Publish the source code to Sonarqube
         stage ('Sonarqube Analysis'){
             steps {
-
-                echo 'deploying......'
-                // echo ' Source code published to Sonarqube for SCA......'
-                // withSonarQubeEnv('sonarqube'){ // You can override the credential to be used
-                //      sh 'mvn sonar:sonar'
-                // }
-
+                echo 'deploying......'     
             }
         }
 
@@ -119,10 +94,6 @@ pipeline{
                         echo "GroupID is '${GroupId}'"
                         echo "Name is '${Name}'"
                     }
-                }
-
-        
-        
+                }        
     }
-
 }
