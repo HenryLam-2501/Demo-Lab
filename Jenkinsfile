@@ -60,9 +60,9 @@ pipeline{
             }
         }
 
-        stage ('Deploy to Tomcat'){
+        stage ('Build Docker Image'){
             steps {
-                echo "Deploying ...."
+                echo "Building ...."
                 sshPublisher(publishers: 
                 [sshPublisherDesc(
                     configName: 'Ansible_Controller', 
@@ -73,7 +73,7 @@ pipeline{
                           execCommand: 'ansible-playbook /opt/playbooks/installmanual.yaml -i /opt/playbooks/hosts', 
                           execTimeout: 120000,
                         flatten: false, 
-                        makeEmptyDirs: false, 
+                        makeEmptyDirs: false,
                         noDefaultExcludes: false, 
                         patternSeparator: '[, ]+', 
                         remoteDirectory: '', 
