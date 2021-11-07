@@ -60,6 +60,8 @@ pipeline{
                  withSonarQubeEnv('sonarqube'){ // You can override the credential to be used
                      sh 'mvn sonar:sonar'     
             }
+         }
+        
         }
 
         stage ('Build Docker Image and push to repo'){
