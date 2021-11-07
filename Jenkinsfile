@@ -31,7 +31,7 @@ pipeline{
 
             }
         }
-        stage ('Publish to Nexus'){
+        stage ('Publish maven package to Nexus'){
             steps {
                 script {
 
@@ -60,7 +60,7 @@ pipeline{
             }
         }
 
-        stage ('Build Docker Image'){
+        stage ('Build Docker Image and push to repo'){
             steps {
                 echo "Building ...."
                 sshPublisher(publishers: 
